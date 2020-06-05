@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b32ac158b9b44ca93a3ddb3e88b72, type: 3}
+  m_Name: rain_spawnConfig
+  m_EditorClassIdentifier: 
+  objToSpawn: {fileID: 4515083370582234596, guid: 1accb0495f122ca44897831e3508b6fc,
+    type: 3}
+  maxSpawnables: 5
+  minDelay: 0.2
+  maxDelay: 0.5

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7409d6fe2e109444a7bf92106e21f0e, type: 3}
+  m_Name: rain_call_list
+  m_EditorClassIdentifier: 
+  sceneMatch: RainGame
+  objectsToInst:
+  - ObjectToPool: {fileID: 4515083370582234596, guid: 1accb0495f122ca44897831e3508b6fc,
+      type: 3}
+    NumberToInst: 20
