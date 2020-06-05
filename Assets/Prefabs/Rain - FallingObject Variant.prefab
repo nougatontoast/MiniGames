@@ -34,6 +34,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 28cb842f192990640b3318c5aa8a9478,
         type: 2}
+    - target: {fileID: 7869768703646416453, guid: b7158fbf5ba211b46aaf0afea6882b85,
+        type: 3}
+      propertyPath: destroyOnCollide
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7869768703646416454, guid: b7158fbf5ba211b46aaf0afea6882b85,
         type: 3}
       propertyPath: m_Sprite

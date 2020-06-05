@@ -6,6 +6,10 @@ using UnityEngine;
 public class SpriteConfig : ScriptableObject
 {
     [SerializeField] Sprite defaultSprite = null;
+    [SerializeField] Sprite winSprite = null;
+    [SerializeField] Sprite lostSprite = null;
 
-    public Sprite GetSprite() { return defaultSprite; }
+    public Sprite GetDefaultSprite() { return defaultSprite; }
+    public Sprite GetWinSprite() { return winSprite; }
+    public Sprite GetLostSprite() { return lostSprite; }
 }

@@ -7,8 +7,12 @@ public abstract class BasicObject : MonoBehaviour, IId
     [SerializeField] Id_Config id_Config = null;
     [SerializeField] SpriteConfig spriteConfig = null;
 
+    internal Pooler pooler = null;
+
     private void Awake()
     {
+        pooler = FindObjectOfType<Pooler>();
+
         SetUpSprite();
     }
     public string GetId()
@@ -23,6 +27,6 @@ public abstract class BasicObject : MonoBehaviour, IId
 
     public void SetUpSprite()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetSprite();
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetDefaultSprite();
     }
 }

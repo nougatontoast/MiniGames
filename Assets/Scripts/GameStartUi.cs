@@ -18,12 +18,18 @@ public class GameStartUi : MonoBehaviour
 
     private void SetGoalText()
     {
-        goalText.GetComponent<TextMesh>().text = textConfig.GetText();
+        goalText.GetComponent<TMPro.TextMeshProUGUI>().text = textConfig.GetText();
     }
     
     internal void UpdateCountText(int countNum)
     {
-        countDown.GetComponent<Text>().text = countNum.ToString();
+        countDown.GetComponent<TMPro.TextMeshProUGUI>().text = countNum.ToString();
+    }
+
+    internal void HidePreStartUI()
+    {
+        goalText.SetActive(false);
+        countDown.SetActive(false);
     }
 
 }

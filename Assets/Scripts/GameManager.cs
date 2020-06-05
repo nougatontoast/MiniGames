@@ -6,10 +6,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] internal GameStartUi gameStartUi = null;
 
-    private bool gameStarted = false;
+    public bool gameStarted = false;
 
     private int maxCount = 3;
     internal int currentCount = new int();
+    private bool isCounting = false;
+
+    public bool playerHasWon = false;
+    public bool playerHasLost = false;
 
     private void Awake()
     {
@@ -22,22 +26,28 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentCount != 0)
+        if (currentCount >= 0)
         {
-            StartCoroutine(DelayCount(2));
+            if (!isCounting)
+            {
+                isCounting = true;
+                StartCoroutine(DelayCount(.5f));
+            }
         }
 
-        if (currentCount == 1)
+        if (currentCount == 0)
         {
             gameStarted = true;
+            gameStartUi.HidePreStartUI();
         }
     }
 
-    public IEnumerator DelayCount(int delayTime)
+    public IEnumerator DelayCount(float delayTime)
     {
-        yield return new WaitForSeconds(delayTime);
         gameStartUi.UpdateCountText(currentCount);
+        yield return new WaitForSeconds(delayTime);
         currentCount--;
+        isCounting = false;
         yield break;
     }
 

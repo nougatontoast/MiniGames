@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2b32ac158b9b44ca93a3ddb3e88b72, type: 3}
-  m_Name: rain_spawnConfig
+  m_Script: {fileID: 11500000, guid: 8da874a0476cc8a41bfd4d32e3fa2454, type: 3}
+  m_Name: blank_wall
   m_EditorClassIdentifier: 
-  objToSpawn: {fileID: 4515083370582234596, guid: 1accb0495f122ca44897831e3508b6fc,
-    type: 3}
-  maxSpawnables: 100
-  minDelay: 0.2
-  maxDelay: 0.5
+  defaultSprite: {fileID: 21300000, guid: 6f6cb8e17c721d940b51b0ae63275a02, type: 3}
+  winSprite: {fileID: 0}
+  lostSprite: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnObj : Bounds
 {
     IdManager idManager;
+    GameManager gameManager;
 
     [Header("References")]
     [SerializeField] internal Pooler pooler = null;
@@ -27,6 +28,7 @@ public class SpawnObj : Bounds
     private void Awake()
     {
         idManager = FindObjectOfType<IdManager>();
+        gameManager = FindObjectOfType<GameManager>();
 
 
         var spawnObj = spawnConfig.GetSpawnable();
@@ -41,7 +43,7 @@ public class SpawnObj : Bounds
 
     private void Update()
     {
-        if (currentSpawnablesNum < maxSpawnables && !isSpawning)
+        if (currentSpawnablesNum < maxSpawnables && !isSpawning && gameManager.gameStarted)
         {
             SpawnInBounds(spawnObjType, spawnObjId, 1);
         }
