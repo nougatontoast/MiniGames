@@ -33,8 +33,7 @@ public class LoseOnCollide : MonoBehaviour
                 {
                     if (thisType.Equals(typetag))
                     {
-                        Debug.Log("Player has lost");
-                        gameManager.playerHasLost = true;
+                        gameManager.SetPlayerLostToTrue();
                     }
                     else
                     {

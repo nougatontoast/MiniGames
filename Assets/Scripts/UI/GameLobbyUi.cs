@@ -15,21 +15,27 @@ public class GameLobbyUi : MonoBehaviour
     {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
 
-        if (scoreKeeper.GetLifeTotal() == 3)
+        if (scoreKeeper.GetCurrentLives() == 3)
         {
             Life1.GetComponent<Image>().enabled = true;
             Life2.GetComponent<Image>().enabled = true;
             Life3.GetComponent<Image>().enabled = true;
         }
-        if (scoreKeeper.GetLifeTotal() == 2)
+        if (scoreKeeper.GetCurrentLives() == 2)
         {
             Life1.GetComponent<Image>().enabled = true;
             Life2.GetComponent<Image>().enabled = true;
             Life3.GetComponent<Image>().enabled = false;
         }
-        if (scoreKeeper.GetLifeTotal() == 1)
+        if (scoreKeeper.GetCurrentLives() == 1)
         {
             Life1.GetComponent<Image>().enabled = true;
+            Life2.GetComponent<Image>().enabled = false;
+            Life3.GetComponent<Image>().enabled = false;
+        }
+        if (scoreKeeper.GetCurrentLives() <= 0)
+        {
+            Life1.GetComponent<Image>().enabled = false;
             Life2.GetComponent<Image>().enabled = false;
             Life3.GetComponent<Image>().enabled = false;
         }

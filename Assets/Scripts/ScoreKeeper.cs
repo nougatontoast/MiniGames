@@ -4,48 +4,29 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    MySceneLoader sceneLoader;
+    MySceneLoader mySceneLoader;
     GameManager gameManager;
 
     private int instanceCount = new int();
 
     private int totalPlayerLives = 3;
     private int currentPlayerLives = new int();
-    private bool currentLifeTotalCanChange = new bool();
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        sceneLoader = FindObjectOfType<MySceneLoader>();
+        mySceneLoader = FindObjectOfType<MySceneLoader>();
 
         SetUpSingleton();
         
-        if (sceneLoader.GetCurrentSceneName().Equals("StartScene"))
+        if (mySceneLoader.GetCurrentSceneName().Equals("StartScene"))
         {
             ResetLives();
         }
-    }
 
-    private void Update()
-    {
-        if (!gameManager.playerHasLost)
+        if (currentPlayerLives <= 0)
         {
-            Debug.Log("Player Has Lost = " + gameManager.playerHasLost);
-            currentLifeTotalCanChange = true;
-        }
-        else
-        {
-            Debug.Log("Player Has Lost = " + gameManager.playerHasLost);
-            if (currentLifeTotalCanChange)
-            {
-                SubtractLife();
-                currentLifeTotalCanChange = false;
-            }
-
-            if (currentPlayerLives <= 0)
-            {
-                sceneLoader.GoToRestart();
-            }
+            mySceneLoader.GoToRestart();
         }
     }
 
@@ -69,13 +50,13 @@ public class ScoreKeeper : MonoBehaviour
         currentPlayerLives = totalPlayerLives;
     }
 
-    private void SubtractLife()
+    public void SubtractLife()
     {
         currentPlayerLives--;
     }
 
-    public int GetLifeTotal()
+    public int GetCurrentLives()
     {
-        return totalPlayerLives;
+        return currentPlayerLives;
     }
 }

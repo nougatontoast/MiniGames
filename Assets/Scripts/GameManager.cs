@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] internal GameTimeConfig gameTimeConfig = null;
     [SerializeField] internal TimeUi timeUi = null;
 
+    ScoreKeeper scoreKeeper;
     MySceneLoader mySceneLoader;
 
     //=======================//
@@ -42,17 +44,22 @@ public class GameManager : MonoBehaviour
     private bool isExitCounting = false;
 
     // mini game timer //
-    private bool gameTimerCounting = false;
+    private bool gameTimerCounting = new bool();
     private int countDownTo = new int();
     private float timeCounter = new int();
 
     // win lose tracking //
-    public bool playerHasWon = false;
-    public bool playerHasLost = false;
+    [HideInInspector] public bool playerHasWon = new bool();
+    [HideInInspector] public bool playerHasLost = new bool();
+    private bool playerCanLoseLife = new bool();
 
     private void Awake()
     {
         mySceneLoader = FindObjectOfType<MySceneLoader>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+
+        playerHasWon = false;
+        playerHasLost = false;
 
         DetermineGameState();
     }
@@ -63,6 +70,8 @@ public class GameManager : MonoBehaviour
         {
             if (!gameStarted)
             {
+                playerCanLoseLife = true;
+
                 SetUpMiniGameTimer();
                 CountDownToStartGame();
             }
@@ -87,6 +96,15 @@ public class GameManager : MonoBehaviour
                 }
                 if (gameOver)
                 {
+                    if (playerHasLost)
+                    {
+                        if (playerCanLoseLife)
+                        {
+                            scoreKeeper.SubtractLife();
+                            playerCanLoseLife = false;
+                        }
+                    }
+
                     ReturnToLobby();
                 }
             }
@@ -130,6 +148,7 @@ public class GameManager : MonoBehaviour
 
     private void ReturnToLobby()
     {
+
         if (currentExitCount != maxExitCount && !isExitCounting)
         {
             StartCoroutine(DelayGoToLobby(1));
@@ -197,6 +216,8 @@ public class GameManager : MonoBehaviour
 
     private void SetUpMiniGameTimer()
     {
+        gameTimerCounting = false;
+
         countDownTo = gameTimeConfig.GetTotalTime();
         timeUi.SetMax(countDownTo);
 
@@ -217,5 +238,11 @@ public class GameManager : MonoBehaviour
             yield break;
         }
     }
+
+    public void SetPlayerLostToTrue()
+    {
+        playerHasLost = true;
+    }
+
 
 }
