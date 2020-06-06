@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e626f7aded3f34bb0e5a2a05fe14d3, type: 3}
   m_Name: rain_timeconfig
   m_EditorClassIdentifier: 
-  totalTime: 10
+  totalTime: 3

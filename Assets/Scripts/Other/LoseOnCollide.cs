@@ -23,28 +23,31 @@ public class LoseOnCollide : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (string typetag in collideTags)
+        if (!gameManager.gameOver)
         {
-            var thisType = idManager.GetObjType(collision.gameObject);
-
-            if (thisType != null)
+            foreach (string typetag in collideTags)
             {
-                if (thisType.Equals(typetag))
+                var thisType = idManager.GetObjType(collision.gameObject);
+
+                if (thisType != null)
                 {
-                    Debug.Log("Player has lost");
-                    gameManager.playerHasLost = true;
-                    Debug.Log(gameManager.playerHasLost);
+                    if (thisType.Equals(typetag))
+                    {
+                        Debug.Log("Player has lost");
+                        gameManager.playerHasLost = true;
+                    }
+                    else
+                    {
+                        Debug.Log("Collision does not match");
+                    }
                 }
                 else
                 {
-                    Debug.Log("Collision does not match");
+                    Debug.Log("Collision coming back null");
                 }
-            }
-            else
-            {
-                Debug.Log("Collision coming back null");
             }
         }
     }
+       
 }
 

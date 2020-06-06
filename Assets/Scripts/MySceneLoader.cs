@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class MySceneLoader : MonoBehaviour
 {
     public string GetCurrentSceneName()
     {
@@ -18,6 +18,11 @@ public class SceneLoader : MonoBehaviour
     public void GoToNewGame()
     {
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void GoToRestart()
+    {
+        SceneManager.LoadScene("Restart");
     }
 
     public void GoToGame(int sceneIndex)

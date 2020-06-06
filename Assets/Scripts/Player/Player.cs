@@ -51,6 +51,12 @@ public class Player : MonoBehaviour, IId
         {
             movement.enabled = false;
         }
+
+        if (gameManager.gameOver)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            movement.enabled = false;
+        }
     }    
 
     private void SetWinOrLoseSprite()

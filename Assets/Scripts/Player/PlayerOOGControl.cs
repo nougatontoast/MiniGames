@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerOOGControl : MonoBehaviour
 {
-    SceneLoader sceneLoader;
+    MySceneLoader sceneLoader;
     [SerializeField] PInput pInput = null;
 
     private void Awake()
     {
-        sceneLoader = FindObjectOfType<SceneLoader>();
+        sceneLoader = FindObjectOfType<MySceneLoader>();
     }
 
     private void Update()

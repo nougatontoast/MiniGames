@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] internal GameStartUi gameStartUi = null;
     [SerializeField] internal GameTimeConfig gameTimeConfig = null;
+    [SerializeField] internal TimeUi timeUi = null;
 
-    SceneLoader sceneLoader;
+    MySceneLoader mySceneLoader;
 
     //=======================//
     //                       //
@@ -28,48 +29,69 @@ public class GameManager : MonoBehaviour
 
     private bool inMiniGame = new bool();
     public bool gameStarted = false;
+    public bool gameOver = false;
 
     // count down to start //
     private int maxCount = 3;
     internal int currentCount = new int();
     private bool isCounting = false;
 
+    // count down to exit //
+    private int maxExitCount = 1;
+    internal float currentExitCount = new int();
+    private bool isExitCounting = false;
+
     // mini game timer //
     private bool gameTimerCounting = false;
-    private int countDownFrom = new int();
-    private int timeLeft = new int();
+    private int countDownTo = new int();
+    private float timeCounter = new int();
 
     // win lose tracking //
-    public bool playerHasWon = new bool();
-    public bool playerHasLost = new bool();
+    public bool playerHasWon = false;
+    public bool playerHasLost = false;
 
     private void Awake()
     {
-        sceneLoader = FindObjectOfType<SceneLoader>();
+        mySceneLoader = FindObjectOfType<MySceneLoader>();
 
         DetermineGameState();
-    }
-
-    private void Start()
-    {
-        
     }
 
     private void Update()
     {
         if (inMiniGame)
         {
-            SetUpMiniGameTimer();
-            CountDownToStartGame();
-
-            if (gameStarted)
+            if (!gameStarted)
             {
-                if (!gameTimerCounting)
+                SetUpMiniGameTimer();
+                CountDownToStartGame();
+            }
+            else
+            {
+                if (!gameTimerCounting && timeCounter != 0 && !gameOver)
                 {
-                    StartCoroutine(MiniGameTimer(1f));
+                    StartCoroutine(MiniGameTimer(.01f));
+                }
+                if (timeCounter <= 0)
+                {
+                    gameOver = true;
+
+                    if (!playerHasLost)
+                    {
+                        playerHasWon = true;
+                    }
+                }
+                if (playerHasLost)
+                {
+                    gameOver = true;
+                }
+                if (gameOver)
+                {
+                    ReturnToLobby();
                 }
             }
         }
+
         if (inGameLobby)
         {
             PickNewGame();
@@ -78,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     private void DetermineGameState()
     {
-        var currentScene = sceneLoader.GetCurrentSceneName();
+        var currentScene = mySceneLoader.GetCurrentSceneName();
 
         if (currentScene.Equals("StartScene") || currentScene.Equals("GameLobby") || currentScene.Equals("Restart"))
         {
@@ -96,6 +118,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //      Game to Lobby
+
     private void PickNewGame()
     {
         if (!isPickingGame)
@@ -104,22 +128,46 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void ReturnToLobby()
+    {
+        if (currentExitCount != maxExitCount && !isExitCounting)
+        {
+            StartCoroutine(DelayGoToLobby(1));
+        }
+        if (currentExitCount >= maxExitCount)
+        {
+            mySceneLoader.GoToGameLobby();
+        }
+    }
+
+    private IEnumerator DelayGoToLobby(float delayTime)
+    {
+        isExitCounting = true;
+        yield return new WaitForSeconds(delayTime);
+
+        currentExitCount += .5f;
+        isExitCounting = false;
+        yield break;
+    }
+
     private IEnumerator DelayPickGame()
     {
         isPickingGame = true;
         Debug.Log("Picking game");
 
         yield return new WaitForSeconds(2);
-        sceneLoader.GetRandomGame();
+        mySceneLoader.GetRandomGame();
         yield break;
 
     }
+
+    //      Countdown to Start
 
     private void CountDownToStartGame()
     {
         if (currentCount >= 0)
         {
-            if (!isCounting)
+            if (!isCounting && !gameStarted)
             {
                 isCounting = true;
                 StartCoroutine(DelayCount(.5f));
@@ -145,10 +193,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //      Minigame Timer
+
     private void SetUpMiniGameTimer()
     {
-        countDownFrom = gameTimeConfig.GetTotalTime();
-        timeLeft = countDownFrom;
+        countDownTo = gameTimeConfig.GetTotalTime();
+        timeUi.SetMax(countDownTo);
+
+        timeCounter = countDownTo;
+        timeUi.SetTime(timeCounter);
     }
 
     public IEnumerator MiniGameTimer(float delayTime)
@@ -158,7 +211,8 @@ public class GameManager : MonoBehaviour
             gameTimerCounting = true;
             yield return new WaitForSeconds(delayTime);
 
-            timeLeft--;
+            timeCounter -= delayTime;
+            timeUi.SetTime(timeCounter);
             gameTimerCounting = false;
             yield break;
         }

@@ -43,7 +43,7 @@ public class SpawnObj : Bounds
 
     private void Update()
     {
-        if (currentSpawnablesNum < maxSpawnables && !isSpawning && gameManager.gameStarted)
+        if (currentSpawnablesNum < maxSpawnables && !isSpawning && gameManager.gameStarted && !gameManager.gameOver)
         {
             SpawnInBounds(spawnObjType, spawnObjId, 1);
         }
