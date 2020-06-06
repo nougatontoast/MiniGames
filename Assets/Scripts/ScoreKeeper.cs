@@ -14,11 +14,14 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Awake()
     {
+        SetUpSingleton();
+    }
+
+    private void Start()
+    {
         gameManager = FindObjectOfType<GameManager>();
         mySceneLoader = FindObjectOfType<MySceneLoader>();
 
-        SetUpSingleton();
-        
         if (mySceneLoader.GetCurrentSceneName().Equals("StartScene"))
         {
             ResetLives();

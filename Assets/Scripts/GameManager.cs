@@ -112,7 +112,15 @@ public class GameManager : MonoBehaviour
 
         if (inGameLobby)
         {
-            PickNewGame();
+            var lives = scoreKeeper.GetCurrentLives();
+            if (lives <= 0)
+            {
+                mySceneLoader.GoToRestart();
+            }
+            else
+            {
+                PickNewGame();
+            }
         }
     }
 
@@ -172,7 +180,6 @@ public class GameManager : MonoBehaviour
     private IEnumerator DelayPickGame()
     {
         isPickingGame = true;
-        Debug.Log("Picking game");
 
         yield return new WaitForSeconds(2);
         mySceneLoader.GetRandomGame();
