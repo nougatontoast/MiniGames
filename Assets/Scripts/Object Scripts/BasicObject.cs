@@ -14,6 +14,7 @@ public abstract class BasicObject : MonoBehaviour, IId
         pooler = FindObjectOfType<Pooler>();
 
         SetUpSprite();
+        SetUpColor();
     }
     public string GetId()
     {
@@ -28,5 +29,14 @@ public abstract class BasicObject : MonoBehaviour, IId
     public void SetUpSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetDefaultSprite();
+    }
+
+    public void SetUpColor()
+    {
+        var dColor = spriteConfig.GetDefaultColor();
+        if (dColor != null)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = dColor;
+        }
     }
 }

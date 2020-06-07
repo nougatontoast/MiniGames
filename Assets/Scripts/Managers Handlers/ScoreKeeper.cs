@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
+    [SerializeField] internal bool testingMinigame = new bool();
+
     MySceneLoader mySceneLoader;
     GameManager gameManager;
 
@@ -11,6 +13,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private int totalPlayerLives = 3;
     private int currentPlayerLives = new int();
+
 
     private void Awake()
     {
@@ -21,6 +24,12 @@ public class ScoreKeeper : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         mySceneLoader = FindObjectOfType<MySceneLoader>();
+
+        if (testingMinigame)
+        {
+            currentPlayerLives = 3;
+        }
+
 
         if (mySceneLoader.GetCurrentSceneName().Equals("StartScene"))
         {

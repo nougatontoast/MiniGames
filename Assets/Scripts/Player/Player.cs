@@ -20,8 +20,8 @@ public class Player : MonoBehaviour, IId
 
     private void Update()
     {
-        SetMovementIfGameStarted();
-        SetWinOrLoseSprite();
+/*        SetMovementIfGameStarted();
+        SetWinOrLoseSprite();*/
     }
 
     private void FixedUpdate()
@@ -41,25 +41,8 @@ public class Player : MonoBehaviour, IId
     }
     #endregion
 
-    private void SetMovementIfGameStarted()
-    {
-        if (gameManager.gameStarted)
-        {
-            movement.enabled = true;
-        }
-        else
-        {
-            movement.enabled = false;
-        }
 
-        if (gameManager.gameOver)
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-            movement.enabled = false;
-        }
-    }    
-
-    private void SetWinOrLoseSprite()
+/*    private void SetWinOrLoseSprite()
     {
         if (gameManager.playerHasWon)
         {
@@ -69,5 +52,5 @@ public class Player : MonoBehaviour, IId
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetLostSprite();
         }
-    }
+    }*/
 }

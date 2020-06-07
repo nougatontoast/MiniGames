@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoseOnCollide : MonoBehaviour
+public class WinOnCollide : MonoBehaviour
 {
     GameManager gameManager = null;
     IdManager idManager = null;
@@ -21,7 +21,7 @@ public class LoseOnCollide : MonoBehaviour
         }
     }
 
-  /*  private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!gameManager.gameOver)
         {
@@ -33,7 +33,7 @@ public class LoseOnCollide : MonoBehaviour
                 {
                     if (thisType.Equals(typetag))
                     {
-                        *//*gameManager.SetPlayerLostToTrue();*//*
+*//*                        gameManager.SetPlayerWonToTrue();*//*
                     }
                     else
                     {
@@ -47,6 +47,37 @@ public class LoseOnCollide : MonoBehaviour
             }
         }
     }*/
-       
+
+   /* private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Win collision detected. Checking strings");
+
+        if (!gameManager.gameOver)
+        {
+
+            foreach (string typetag in collideTags)
+            {
+                var thisType = idManager.GetObjType(collision.gameObject);
+
+                if (thisType != null)
+                {
+                    if (thisType.Equals(typetag))
+                    {
+*//*                        gameManager.SetPlayerWonToTrue();*//*
+                        Debug.Log("HIT");
+                    }
+                    else
+                    {
+                        Debug.Log("Collision does not match");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Collision coming back null");
+                }
+            }
+        }
+    }*/
+
 }
 
