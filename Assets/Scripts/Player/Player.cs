@@ -1,20 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Player : MonoBehaviour, IId
 {
-    GameManager gameManager;
 
-    [Header("Internal Ref")]
+    [Header("Configs")]
     [SerializeField] internal Id_Config id_Config = null;
     [SerializeField] internal SpriteConfig spriteConfig = null;
-    [SerializeField] internal Movement movement = null;
+
+    [Header("Movement")]
+    [SerializeField] internal List<GameObject> movementFunctionsUsed = new List<GameObject>();
+
+    [Header("Input")]
     [SerializeField] internal PInput pInput = null;
+
+    [Header("Other")]
     [SerializeField] internal pInteract pInteract = null;
     [SerializeField] internal Rigidbody2D rb = null;
 
     internal void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetDefaultSprite();
     }
 
@@ -28,6 +33,7 @@ public class Player : MonoBehaviour, IId
     {
         
     }
+
 
     #region IID region
     public string GetId()

@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1232139349019973540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6841825598582190046}
+  - component: {fileID: 3245909211987196591}
+  m_Layer: 0
+  m_Name: Movement_Y
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6841825598582190046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232139349019973540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7533562992037252928}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3245909211987196591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232139349019973540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16244ef2fd5311a49a46d0372d2daf48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7533562992037252943}
+  pInput: {fileID: 7533562992169496420}
+  moveConfig: {fileID: 11400000, guid: 2ea497413b08e1349ab03fae6eff38bd, type: 2}
 --- !u!1 &7533562991683895594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +57,7 @@ GameObject:
   - component: {fileID: 7533562991683895592}
   - component: {fileID: 7533562991683895593}
   m_Layer: 0
-  m_Name: Movement
+  m_Name: Movement_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +84,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7533562991683895594}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd945b2fbf3994844baffd0986bee8d3, type: 3}
   m_Name: 
@@ -79,6 +125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7533562991683895592}
+  - {fileID: 6841825598582190046}
   - {fileID: 7533562992169496419}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -147,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_Config: {fileID: 11400000, guid: 414dbcc8112dc3849ba9b260d1c2a7b1, type: 2}
   spriteConfig: {fileID: 11400000, guid: 3c9b78a4d46d7154a95824cede66ce2d, type: 2}
-  movement: {fileID: 7533562991683895593}
+  movementFunctionsUsed: []
   pInput: {fileID: 7533562992169496420}
   pInteract: {fileID: 0}
   rb: {fileID: 7533562992037252942}
@@ -242,7 +289,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7533562992037252928}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7533562992169496420
 MonoBehaviour:

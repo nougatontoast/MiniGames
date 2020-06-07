@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] internal GameStartUi gameStartUi = null;
+    [SerializeField] internal MiniGameStartUI gameStartUi = null;
     [SerializeField] internal TimeUi timeUi = null;
 
     internal ScoreKeeper scoreKeeper;

@@ -36,10 +36,12 @@ public class MinigameHandler : GameManager
     public void PlayerWonTrue()
     {
         PlayerWon?.Invoke();
+        SetGameOver();
     }
 
     public void PlayerLostTrue()
     {
         PlayerLost?.Invoke();
+        SetGameOver();
     }
 }
