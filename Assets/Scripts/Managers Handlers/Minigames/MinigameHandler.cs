@@ -26,6 +26,7 @@ public class MinigameHandler : GameManager
     public void SetGameStarted()
     {
         GameStarted?.Invoke();
+        Debug.Log("Game starting invoked");
     }
 
     public void SetGameOver()
@@ -42,6 +43,7 @@ public class MinigameHandler : GameManager
     public void PlayerLostTrue()
     {
         PlayerLost?.Invoke();
+        Debug.Log("Player has lost");
         SetGameOver();
     }
 }

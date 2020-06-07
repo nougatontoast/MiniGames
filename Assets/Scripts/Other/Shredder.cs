@@ -5,8 +5,7 @@ using UnityEngine;
 public class Shredder : MonoBehaviour
 {
     IdManager idManager;
-
-    [SerializeField] Pooler pooler = null;
+    Pooler pooler;
 
     [SerializeField] List<GameObject> shreddables = new List<GameObject>();
     [SerializeField] List<string> shredTags = new List<string>();
@@ -14,6 +13,7 @@ public class Shredder : MonoBehaviour
     private void Awake()
     {
         idManager = FindObjectOfType<IdManager>();
+        pooler = FindObjectOfType<Pooler>();
 
         foreach (GameObject obj in shreddables)
         {

@@ -21,7 +21,6 @@ public class Movement_X : MonoBehaviour
         if (player.rb != null)
         {
             var velX = pInput.movementInput.x * moveConfig.GetMoveSpeed() * Time.fixedDeltaTime;
-            Debug.Log(velX);
             player.rb.velocity = new Vector2(velX, player.rb.velocity.y);
         }
     }

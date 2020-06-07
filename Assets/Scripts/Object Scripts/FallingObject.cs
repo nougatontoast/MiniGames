@@ -10,7 +10,7 @@ public class FallingObject : BasicObject
     {
         if (destroyOnCollide)
         {
-            StartCoroutine(DelayReturn(.1f));
+            pooler.ReturnToPool(gameObject);
         }
     }
 

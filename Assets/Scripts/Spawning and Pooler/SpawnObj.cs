@@ -13,19 +13,17 @@ public class SpawnObj : Bounds
     [Header("Spawn Config")]
     [SerializeField] internal SpawnConfig spawnConfig = null;
 
-    private bool shouldStartSpawning = false;
+    private int currentSpawnablesNum = 0;
+    private int maxSpawnables = new int();
 
-    internal int currentSpawnablesNum = 0;
-    internal int maxSpawnables = new int();
+    private string spawnObjId = null;
+    private string spawnObjType = null;
 
-    internal string spawnObjId = null;
-    internal string spawnObjType = null;
-
-    internal float minDelay = new float();
-    internal float maxDelay = new float();
+    private float minDelay = new float();
+    private float maxDelay = new float();
 
     private bool isSpawning = false;
-    internal Coroutine delaySpawnCoroutine = null;
+    private Coroutine delaySpawnCoroutine = null;
 
     private void Awake()
     {
@@ -45,7 +43,10 @@ public class SpawnObj : Bounds
 
     private void Update()
     {
-        SpawnInBounds(spawnObjType, spawnObjId, 1);
+        if (!isSpawning)
+        {
+            SpawnInBounds(spawnObjType, spawnObjId, 1);
+        }
     }
 
     private void SpawnInBounds(string id_type_objtospawn, string id_objtospawn, int amountToSpawn)

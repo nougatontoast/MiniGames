@@ -7,10 +7,14 @@ public class StartMinigame : MinigameHandler
     [Header("Things To Enable On Start")]
     [SerializeField] internal List<GameObject> minigameElements = new List<GameObject>();
 
+
     private void Awake()
     {
-        GameStarted += EnableList;
-        GameIsOver += DisableList;
+
+        var minigameHandler = gameObject.GetComponent<MinigameHandler>();
+        minigameHandler.GameStarted += EnableList;
+        minigameHandler.GameIsOver += DisableList;
+
     }
 
     private void DisableList()
@@ -26,7 +30,6 @@ public class StartMinigame : MinigameHandler
         foreach (GameObject element in minigameElements)
         {
             element.SetActive(true);
-            Debug.Log(element + "set to true");
         }
     }
 }

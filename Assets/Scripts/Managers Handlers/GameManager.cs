@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] internal MiniGameStartUI gameStartUi = null;
     [SerializeField] internal TimeUi timeUi = null;
 
-    internal ScoreKeeper scoreKeeper;
-    internal MySceneLoader mySceneLoader;
+    internal ScoreKeeper scoreKeeper = null;
+    internal MySceneLoader mySceneLoader = null;
 
     private bool playerShouldLoseLife = new bool();
 
