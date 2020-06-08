@@ -10,8 +10,8 @@ public class EndMinigame : MonoBehaviour
     private void Awake()
     {
         Debug.Log("End awake");
-        var minigameHandler = gameObject.GetComponent<MinigameHandler>();
-        minigameHandler.GameOver += DisableList;
+        var theMinigameHandler = gameObject.GetComponent<MinigameHandler>();
+        theMinigameHandler.GameOver += DisableList;
     }
 
     private void DisableList()

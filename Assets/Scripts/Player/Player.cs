@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IId
 {
-
     [Header("Configs")]
     [SerializeField] internal Id_Config id_Config = null;
     [SerializeField] internal SpriteConfig spriteConfig = null;
@@ -18,15 +17,23 @@ public class Player : MonoBehaviour, IId
     [SerializeField] internal pInteract pInteract = null;
     [SerializeField] internal Rigidbody2D rb = null;
 
+    MinigameHandler minigameHandler;
+
     internal void Awake()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetDefaultSprite();
+
+        minigameHandler = FindObjectOfType<MinigameHandler>();
+        minigameHandler.PlayerLost += SetLoseSprite;
+        minigameHandler.PlayerWon += SetWinSprite;
     }
 
     private void Update()
     {
-/*        SetMovementIfGameStarted();
-        SetWinOrLoseSprite();*/
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            minigameHandler.InvokeGameOver();
+        }
     }
 
     private void FixedUpdate()
@@ -48,15 +55,13 @@ public class Player : MonoBehaviour, IId
     #endregion
 
 
-/*    private void SetWinOrLoseSprite()
+    private void SetLoseSprite()
     {
-        if (gameManager.playerHasWon)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetWinSprite();
-        }
-        if (gameManager.playerHasLost)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetLostSprite();
-        }
-    }*/
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetLostSprite();
+    }
+
+    private void SetWinSprite()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetWinSprite();
+    }
 }

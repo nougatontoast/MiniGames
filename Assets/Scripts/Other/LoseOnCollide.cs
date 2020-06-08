@@ -29,36 +29,16 @@ public class LoseOnCollide : MinigameHandler
             {
                 if (thisType.Equals(typetag))
                 {
-                    PlayerLostTrue();
+                    InvokePlayerLost();
                 }
                 else
                 {
+/*                    Debug.Log($"Looking for: {typetag}, Collided with: {thisType}");*/
                 }
             }
             else
             {
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        foreach (string typetag in collideTags)
-        {
-            var thisType = idManager.GetObjType(collision.gameObject);
-
-            if (thisType != null)
-            {
-                if (thisType.Equals(typetag))
-                {
-                    PlayerLostTrue();
-                }
-                else
-                {
-                }
-            }
-            else
-            {
+/*                Debug.Log("Collision IID is null");*/
             }
         }
     }

@@ -12,11 +12,11 @@ public class MinigameHandler : GameManager
     public delegate void OnGameOver();
     public event OnGameOver GameOver;
 
-    public delegate void OnPlayerWin();
-    public event OnPlayerWin PlayerWon;
+    public delegate void OnPlayerLost();
+    public event OnPlayerLost PlayerLost;
 
-    public delegate void OnPlayerLose();
-    public event OnPlayerLose PlayerLost;
+    public delegate void OnPlayerWon();
+    public event OnPlayerWon PlayerWon;
 
     private void Awake()
     {
@@ -25,26 +25,18 @@ public class MinigameHandler : GameManager
 
     public void InvokeGameStarted() => GameStarted?.Invoke();
 
-    public void InvokeGameOver()
-    {
-        Debug.Log("Game over");
-        GameOver?.Invoke();
+    public void InvokeGameOver() => GameOver?.Invoke();
 
-        if (GameOver == null)
-        {
-            Debug.Log("GameOver is null");
-        }
+    public void InvokePlayerLost()
+    {
+        PlayerLost?.Invoke();
+        InvokeGameOver();
     }
 
-    public void PlayerWonTrue()
+    public void InvokePlayerWon()
     {
         PlayerWon?.Invoke();
         InvokeGameOver();
     }
 
-    public void PlayerLostTrue()
-    {
-        PlayerLost?.Invoke();
-        InvokeGameOver();
-    }
 }

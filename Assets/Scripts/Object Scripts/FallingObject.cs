@@ -14,10 +14,9 @@ public class FallingObject : BasicObject
         }
     }
 
-/*    private IEnumerator DelayReturn(float delayTime)
+    private IEnumerator DelayReturn(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        pooler.ReturnToPool(gameObject);
         yield break;
-    }*/
+    }
 }
