@@ -1,24 +1,25 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class StartMinigame : MonoBehaviour
+public class EndMinigame : MonoBehaviour
 {
-    [Header("Things To Enable On Start")]
+    [Header("Things To Disable On Start")]
     [SerializeField] internal List<GameObject> minigameElements = new List<GameObject>();
 
 
     private void Awake()
     {
-        Debug.Log("Start awake");
+        Debug.Log("End awake");
         var minigameHandler = gameObject.GetComponent<MinigameHandler>();
-        minigameHandler.GameStarted += EnableList;
+        minigameHandler.GameOver += DisableList;
     }
 
-    private void EnableList()
+    private void DisableList()
     {
+        Debug.Log("Disable list");
         foreach (GameObject element in minigameElements)
         {
-            element.SetActive(true);
+            element.SetActive(false);
         }
     }
 }

@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class Placeholder : MonoBehaviour
 {
-    private string testText = null;
-    private void Awake()
+    public delegate void OnTest1();
+    public event OnTest1 Tested1;
+
+    public delegate void OnTest2();
+    public event OnTest1 Tested2;
+
+    private void Start()
     {
-        Debug.Log("This awake is derived from PLACEHOLDER");
-        testText = "Private test text";
+        Tested1?.Invoke();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Tested2?.Invoke();
+            Debug.Log("Invoking tested 2");
+
+            if (Tested2 == null)
+            {
+                Debug.Log("Tested 2 is null");
+            }
+        }
     }
 }

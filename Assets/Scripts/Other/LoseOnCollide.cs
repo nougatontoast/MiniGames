@@ -33,12 +33,10 @@ public class LoseOnCollide : MinigameHandler
                 }
                 else
                 {
-                    Debug.Log("Collision does not match");
                 }
             }
             else
             {
-                Debug.Log("Collision coming back null");
             }
         }
     }
@@ -57,12 +55,10 @@ public class LoseOnCollide : MinigameHandler
                 }
                 else
                 {
-                    Debug.Log("Collision does not match");
                 }
             }
             else
             {
-                Debug.Log("Collision coming back null");
             }
         }
     }
