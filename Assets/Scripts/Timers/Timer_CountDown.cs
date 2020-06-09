@@ -19,7 +19,7 @@ public class Timer_CountDown : MonoBehaviour
     public delegate void OnTimerDown();
     public event OnTimerDown DownFinished;
 
-    private void Awake()
+    private void OnEnable()
     {
         SetDownVars();
     }

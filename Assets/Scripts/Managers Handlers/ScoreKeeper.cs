@@ -7,7 +7,6 @@ public class ScoreKeeper : MonoBehaviour
     [SerializeField] internal bool testingMinigame = new bool();
 
     MySceneLoader mySceneLoader;
-    GameManager gameManager;
 
     private int instanceCount = new int();
 
@@ -22,11 +21,16 @@ public class ScoreKeeper : MonoBehaviour
     private void Awake()
     {
         SetUpSingleton();
+
+        var theMinigameHandler = FindObjectOfType<MinigameHandler>();
+        if (theMinigameHandler != null)
+        {
+            theMinigameHandler.PlayerLost += SubtractLife;
+        }
     }
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
         mySceneLoader = FindObjectOfType<MySceneLoader>();
 
         if (testingMinigame)

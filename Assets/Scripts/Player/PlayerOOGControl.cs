@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerOOGControl : MonoBehaviour
+public class PlayerOOGControl : MySceneLoader
 {
-    MySceneLoader sceneLoader;
     [SerializeField] PInput pInput = null;
-
-    private void Awake()
-    {
-        sceneLoader = FindObjectOfType<MySceneLoader>();
-    }
 
     private void Update()
     {
@@ -21,7 +15,7 @@ public class PlayerOOGControl : MonoBehaviour
     {
         if (pInput.interactInput > .1f)
         {
-            sceneLoader.GoToGameLobby();
+            GoToGameLobby_Command();
         }
     }
 }

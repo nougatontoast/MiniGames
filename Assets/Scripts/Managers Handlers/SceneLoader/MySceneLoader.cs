@@ -1,18 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MySceneLoader : MonoBehaviour
 {
+    [SerializeField] Timer_CountDown delayActionCounter = null;
+
+    private void Awake()
+    {
+        var theMinigameHandler = FindObjectOfType<MinigameHandler>();
+        if (theMinigameHandler != null)
+        {
+            theMinigameHandler.GameOver += GoToGameLobby_Delay;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    private void RemoveGoToGameLobby()
+    {
+        delayActionCounter.DownFinished -= GoToGameLobby_Command;
+    }
+
+    private void RemoveGetRandomGame()
+    {
+        delayActionCounter.DownFinished -= GetRandomGame_Command;
+    }
+
+    internal void GoToGameLobby_Command()
+    {
+
+        SceneManager.LoadScene("GameLobby");
+    }
+
+    internal void GetRandomGame_Command()
+    {
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        var selectedScene = Random.Range(3, sceneCount - 1);
+
+        SceneManager.LoadScene(selectedScene);
+    }
+
     public string GetCurrentSceneName()
     {
         return SceneManager.GetActiveScene().name;
-    }
-
-    public void GoToGameLobby()
-    {
-        SceneManager.LoadScene("GameLobby");
     }
 
     public void GoToNewGame()
@@ -25,17 +57,18 @@ public class MySceneLoader : MonoBehaviour
         SceneManager.LoadScene("Restart");
     }
 
-    public void GoToGame(int sceneIndex)
+    public void GetRandomGame_Delay()
     {
-        SceneManager.LoadScene(sceneIndex);
+        delayActionCounter.enabled = true;
+        delayActionCounter.DownFinished += GetRandomGame_Command;
+        delayActionCounter.DownFinished += RemoveGetRandomGame;
     }
 
-    public void GetRandomGame()
+    public void GoToGameLobby_Delay()
     {
-        int sceneCount = SceneManager.sceneCountInBuildSettings;
-        var selectedScene = Random.Range(3, sceneCount - 1);
-
-        SceneManager.LoadScene(selectedScene);
+        delayActionCounter.enabled = true;
+        delayActionCounter.DownFinished += GoToGameLobby_Command;
+        delayActionCounter.DownFinished += RemoveGoToGameLobby;
     }
 
 }

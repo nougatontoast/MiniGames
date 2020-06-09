@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class MinigameHandler : GameManager
 {
+    [Header("Timer References")]
     [SerializeField] Timer_CountDown gameStartTimer = null;
     [SerializeField] Timer_CountDown gameEndTimer = null;
 
+    [Header("Set Game Type")]
     [SerializeField] private bool winAtEndIfHasntLost = new bool();
     [SerializeField] private bool loseAtEndIfHasntWon = new bool();
 
-    private bool playerWon = new bool();
-    private bool playerLost = new bool();
+    private bool playerWonInvoked = new bool();
+    private bool playerLostInvoked = new bool();
+    private bool gameOverInkvoked = new bool();
 
     public delegate void OnGameStart();
     public event OnGameStart GameStarted;
@@ -35,18 +38,20 @@ public class MinigameHandler : GameManager
 
     public void InvokeGameOver()
     {
+        gameOverInkvoked = true;
+
         if (winAtEndIfHasntLost)
         {
-            if (!playerLost)
+            if (!playerLostInvoked)
             {
-                playerWon = true;
+                InvokePlayerWon();
             }
         }
         if (loseAtEndIfHasntWon)
         {
-            if (!playerWon)
+            if (!playerWonInvoked)
             {
-                playerLost = true;
+                InvokePlayerLost();
             }
         }
 
@@ -55,16 +60,30 @@ public class MinigameHandler : GameManager
 
     public void InvokePlayerLost()
     {
-        PlayerLost?.Invoke();
-        playerLost = true;
-        InvokeGameOver();
+        if (!playerLostInvoked)
+        {
+            PlayerLost?.Invoke();
+            playerLostInvoked = true;
+        }
+
+        if (!gameOverInkvoked)
+        {
+            InvokeGameOver();
+        }
     }
 
     public void InvokePlayerWon()
     {
-        PlayerWon?.Invoke();
-        playerWon = true;
-        InvokeGameOver();
+        if (!playerWonInvoked)
+        {
+            PlayerWon?.Invoke();
+            playerWonInvoked = true;
+        }
+
+        if (!gameOverInkvoked)
+        {
+            InvokeGameOver();
+        }
     }
 
 }

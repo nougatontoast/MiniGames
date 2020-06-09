@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2204495848841071944}
-  - component: {fileID: 2204495848841071947}
+  - component: {fileID: 1995793634}
   m_Layer: 0
   m_Name: Game Start UI
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2204495848841071947
+--- !u!114 &1995793634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2204495848841071945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23eb43b1fcaa854b8a9d6bab71b2332, type: 3}
+  m_Script: {fileID: 11500000, guid: 71dab856d35e4744cbb6ff60ab6541bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  textConfig: {fileID: 11400000, guid: 2b77e388f6511fe40861f1a9f3c66795, type: 2}
+  minigameHandler: {fileID: 0}
+  goalTextConfig: {fileID: 11400000, guid: 2b77e388f6511fe40861f1a9f3c66795, type: 2}
   goalText: {fileID: 0}
   countDown: {fileID: 0}
+  timer_CountDown: {fileID: 0}

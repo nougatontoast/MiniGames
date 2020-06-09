@@ -9,7 +9,6 @@ public class StartMinigame : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Start awake");
         var minigameHandler = gameObject.GetComponent<MinigameHandler>();
         minigameHandler.GameStarted += EnableList;
     }
