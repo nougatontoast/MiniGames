@@ -14,6 +14,10 @@ public class ScoreKeeper : MonoBehaviour
     private int totalPlayerLives = 3;
     private int currentPlayerLives = new int();
 
+/*    private int difficultyLevel = 1;
+    private int maxSuccessesNeeded = 3;
+    private int currentSuccessCount = 0;*/
+
 
     private void Awake()
     {

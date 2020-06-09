@@ -121,6 +121,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12919047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12919048}
+  - component: {fileID: 12919049}
+  m_Layer: 0
+  m_Name: SetUpTimeUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &12919048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12919047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 555432219}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &12919049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12919047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652ffb0e9cf0ab445b2b12bb5c8f82ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1820083053}
+  gameEndCounter: {fileID: 1392187190}
 --- !u!1001 &46266469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,6 +296,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &130133077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1162402862556159482, guid: 8be56dd0bc4da104e9fab90cdac34fe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7662483131934913473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &167279214
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +544,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7662483131934913473}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 130133077}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0337fae85d6d61f43b65440ff9d85ea2, type: 3}
@@ -694,6 +745,7 @@ Transform:
   m_Children:
   - {fileID: 1137451373}
   - {fileID: 207707598}
+  - {fileID: 12919048}
   m_Father: {fileID: 1353183617}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1493,7 +1545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1392187189
 Transform:
   m_ObjectHideFlags: 0
@@ -1517,10 +1569,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392187188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a51307828d4fe34299c8beab3c6667e, type: 3}
+  m_Script: {fileID: 11500000, guid: 48037bd93541b0249873e9a0aa8ab45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerConfig: {fileID: 0}
+  timerConfig: {fileID: 11400000, guid: b245650004cc00045a82a59a21cb87bd, type: 2}
 --- !u!4 &1402642096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5030734139923503500, guid: 060973daff94b7a43b5260bdf2103410,
@@ -1852,6 +1904,8 @@ MonoBehaviour:
   minigameElements:
   - {fileID: 1551176301}
   - {fileID: 1625038665}
+  - {fileID: 130133077}
+  - {fileID: 1392187188}
 --- !u!1 &1750658501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +2005,7 @@ RectTransform:
   m_GameObject: {fileID: 1820083051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 17.9, y: 0.18, z: 1}
+  m_LocalScale: {x: 18, y: 0.18, z: 1}
   m_Children:
   - {fileID: 627540675}
   - {fileID: 1323529930}
@@ -1960,7 +2014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.2, y: 494}
+  m_AnchoredPosition: {x: -40.17, y: 494}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1820083053
@@ -2007,9 +2061,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 30
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2306,8 +2360,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103477562}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.67601013, y: 0.16778564, z: 0.15437317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 760621900}
@@ -2772,6 +2826,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeUi
       objectReference: {fileID: 0}
+    - target: {fileID: 1162402862556159482, guid: 8be56dd0bc4da104e9fab90cdac34fe2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3039088231198543256, guid: 8be56dd0bc4da104e9fab90cdac34fe2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2831,7 +2890,12 @@ PrefabInstance:
         type: 3}
       propertyPath: slider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1820083053}
+    - target: {fileID: 6948444325597738486, guid: 8be56dd0bc4da104e9fab90cdac34fe2,
+        type: 3}
+      propertyPath: gameEndCounter
+      value: 
+      objectReference: {fileID: 1392187190}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8be56dd0bc4da104e9fab90cdac34fe2, type: 3}
 --- !u!1001 &8863615127297563835
@@ -2844,7 +2908,7 @@ PrefabInstance:
     - target: {fileID: 6161346838061362359, guid: ed961e9913dfea54d903e4027a67879d,
         type: 3}
       propertyPath: minigameElements.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6161346838061362359, guid: ed961e9913dfea54d903e4027a67879d,
         type: 3}
@@ -2856,6 +2920,16 @@ PrefabInstance:
       propertyPath: minigameElements.Array.data[1]
       value: 
       objectReference: {fileID: 1625038665}
+    - target: {fileID: 6161346838061362359, guid: ed961e9913dfea54d903e4027a67879d,
+        type: 3}
+      propertyPath: minigameElements.Array.data[2]
+      value: 
+      objectReference: {fileID: 130133077}
+    - target: {fileID: 6161346838061362359, guid: ed961e9913dfea54d903e4027a67879d,
+        type: 3}
+      propertyPath: minigameElements.Array.data[3]
+      value: 
+      objectReference: {fileID: 1392187188}
     - target: {fileID: 8863615127510835208, guid: ed961e9913dfea54d903e4027a67879d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2921,5 +2995,15 @@ PrefabInstance:
       propertyPath: gameStartTimer
       value: 
       objectReference: {fileID: 2103477564}
+    - target: {fileID: 8863615127510835215, guid: ed961e9913dfea54d903e4027a67879d,
+        type: 3}
+      propertyPath: gameEndTimer
+      value: 
+      objectReference: {fileID: 1392187190}
+    - target: {fileID: 8863615127510835215, guid: ed961e9913dfea54d903e4027a67879d,
+        type: 3}
+      propertyPath: loseAtEndIfHasntWon
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed961e9913dfea54d903e4027a67879d, type: 3}

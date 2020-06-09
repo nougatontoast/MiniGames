@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EndMinigame : MonoBehaviour
 {
-    [Header("Things To Disable On Start")]
+    [Header("Things To Disable At End")]
     [SerializeField] internal List<GameObject> minigameElements = new List<GameObject>();
 
 

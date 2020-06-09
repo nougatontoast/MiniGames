@@ -4,16 +4,17 @@ using UnityEngine.Assertions.Must;
 
 public class Timer_CountDown : MonoBehaviour
 {
-    [SerializeField] private CountDown_TimerConfig timerConfig = null;
+    [SerializeField] internal CountDown_TimerConfig timerConfig = null;
 
-    private float countDownFrom = new float();
     private float downRate = new float();
 
     private float endThresholdTop = new float();
     private float endThresholdBottom = new float();
 
-    private float currentTime_GoingDown = new float();
     private bool isCountingDown = false;
+
+    internal float countDownFrom = new float();
+    internal float currentTime_GoingDown = new float();
 
     public delegate void OnTimerDown();
     public event OnTimerDown DownFinished;
@@ -28,17 +29,6 @@ public class Timer_CountDown : MonoBehaviour
         CountDown();
     }
 
-    private IEnumerator DelayCountDown()
-    {
-        isCountingDown = true;
-        yield return new WaitForSeconds(.1f);
-
-        currentTime_GoingDown -= .1f;
-
-        isCountingDown = false;
-        yield break;
-    }
-
     private void SetDownVars()
     {
         countDownFrom = timerConfig.GetCountDownFrom();
@@ -46,6 +36,17 @@ public class Timer_CountDown : MonoBehaviour
         endThresholdTop = timerConfig.GetEndThresholdTop();
         endThresholdBottom = timerConfig.GetEndThresholdBottom();
         currentTime_GoingDown = countDownFrom;
+    }
+
+    private IEnumerator DelayCountDown()
+    {
+        isCountingDown = true;
+        yield return new WaitForSeconds(downRate);
+
+        currentTime_GoingDown -= downRate;
+
+        isCountingDown = false;
+        yield break;
     }
 
     private void CountDown()
@@ -57,7 +58,7 @@ public class Timer_CountDown : MonoBehaviour
                 StartCoroutine(DelayCountDown());
             }
         }
-        if (currentTime_GoingDown < .9f && currentTime_GoingDown > .7f)
+        if (currentTime_GoingDown < endThresholdTop && currentTime_GoingDown > endThresholdBottom)
         {
             DownFinished?.Invoke();
             gameObject.SetActive(false);

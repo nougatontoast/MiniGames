@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeUi : MonoBehaviour
+public class SetUpTimeUi : MonoBehaviour
 {
     [SerializeField] internal Slider slider = null;
     [SerializeField] internal Timer_CountDown gameEndCounter = null;
 
-    private void Update()
+    private void Awake()
     {
-        SetTime(gameEndCounter.currentTime_GoingDown);
+        SetTime(gameEndCounter.timerConfig.GetCountDownFrom());
     }
 
-    public void SetTime(float currentTime)
+    private void SetTime(float currentTime)
     {
         slider.value = currentTime;
     }

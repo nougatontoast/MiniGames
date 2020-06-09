@@ -25,7 +25,7 @@ public class MiniGameStartUI : MonoBehaviour
     {
         if (timer_CountDown != null)
         {
-            UpdateCountText(Mathf.RoundToInt(timer_CountDown.ReturnCurrentTime()));
+            UpdateCountText(Mathf.RoundToInt(timer_CountDown.currentTime_GoingDown));
         }
     }
 

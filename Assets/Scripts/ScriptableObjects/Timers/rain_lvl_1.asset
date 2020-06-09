@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: rain_lvl_1
   m_EditorClassIdentifier: 
   countDownFrom: 5
-  downRate: 0
+  downRate: 0.1
   endThresholdTop: 0
-  endThresholdBottom: 0
+  endThresholdBottom: -0.9

@@ -11,6 +11,11 @@ public class Movement_X : MonoBehaviour
     [SerializeField] internal PInput pInput = null;
     [SerializeField] internal MovConfig moveConfig = null;
 
+    private void OnDisable()
+    {
+        player.rb.velocity = new Vector2(0, 0);
+    }
+
     private void FixedUpdate()
     {
         Move();
