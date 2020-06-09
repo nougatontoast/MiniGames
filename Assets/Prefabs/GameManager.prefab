@@ -44,6 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStartUi: {fileID: 0}
-  gameStarted: 0
-  playerHasWon: 0
-  playerHasLost: 0
+  timeUi: {fileID: 0}

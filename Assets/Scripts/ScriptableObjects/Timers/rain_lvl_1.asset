@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7927a0445d457e488cedb0bf33efe6e, type: 3}
-  m_Name: minigame_start_countdown
+  m_Name: rain_lvl_1
   m_EditorClassIdentifier: 
-  countDownFrom: 3
-  downRate: 0.1
-  endThresholdTop: 0.9
-  endThresholdBottom: 0.7
+  countDownFrom: 5
+  downRate: 0
+  endThresholdTop: 0
+  endThresholdBottom: 0

@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class LoseOnCollide : MinigameHandler
+public class LoseOnCollide : MonoBehaviour
 {
     IdManager idManager = null;
+    MinigameHandler minigameHandler = null;
 
     [SerializeField] List<GameObject> collidables = new List<GameObject>();
     [SerializeField] List<string> collideTags = new List<string>();
@@ -12,6 +12,7 @@ public class LoseOnCollide : MinigameHandler
     private void Awake()
     {
         idManager = FindObjectOfType<IdManager>();
+        minigameHandler = FindObjectOfType<MinigameHandler>();
 
         foreach (GameObject obj in collidables)
         {
@@ -29,7 +30,7 @@ public class LoseOnCollide : MinigameHandler
             {
                 if (thisType.Equals(typetag))
                 {
-                    InvokePlayerLost();
+                    minigameHandler.InvokePlayerLost();
                 }
                 else
                 {

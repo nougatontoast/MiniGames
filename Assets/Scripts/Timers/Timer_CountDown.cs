@@ -7,6 +7,11 @@ public class Timer_CountDown : MonoBehaviour
     [SerializeField] private CountDown_TimerConfig timerConfig = null;
 
     private float countDownFrom = new float();
+    private float downRate = new float();
+
+    private float endThresholdTop = new float();
+    private float endThresholdBottom = new float();
+
     private float currentTime_GoingDown = new float();
     private bool isCountingDown = false;
 
@@ -37,6 +42,9 @@ public class Timer_CountDown : MonoBehaviour
     private void SetDownVars()
     {
         countDownFrom = timerConfig.GetCountDownFrom();
+        downRate = timerConfig.GetDownRate();
+        endThresholdTop = timerConfig.GetEndThresholdTop();
+        endThresholdBottom = timerConfig.GetEndThresholdBottom();
         currentTime_GoingDown = countDownFrom;
     }
 

@@ -54,7 +54,6 @@ public class Player : MonoBehaviour, IId
     }
     #endregion
 
-
     private void SetLoseSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetLostSprite();
