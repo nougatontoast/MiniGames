@@ -21,12 +21,6 @@ public class ScoreKeeper : MonoBehaviour
     private void Awake()
     {
         SetUpSingleton();
-
-        var theMinigameHandler = FindObjectOfType<MinigameHandler>();
-        if (theMinigameHandler != null)
-        {
-            theMinigameHandler.PlayerLost += SubtractLife;
-        }
     }
 
     private void Start()
@@ -48,6 +42,10 @@ public class ScoreKeeper : MonoBehaviour
         {
             mySceneLoader.GoToRestart();
         }
+    }
+
+    private void Update()
+    {
     }
 
     private void SetUpSingleton()
@@ -72,7 +70,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public void SubtractLife()
     {
-        currentPlayerLives--;
+        currentPlayerLives -= 1;
     }
 
     public int GetCurrentLives()

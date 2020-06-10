@@ -12,6 +12,8 @@ public class MinigameHandler : GameManager
     [SerializeField] private bool winAtEndIfHasntLost = new bool();
     [SerializeField] private bool loseAtEndIfHasntWon = new bool();
 
+    ScoreKeeper scoreKeeper;
+
     private bool playerWonInvoked = new bool();
     private bool playerLostInvoked = new bool();
     private bool gameOverInkvoked = new bool();
@@ -32,6 +34,8 @@ public class MinigameHandler : GameManager
     {
         gameStartTimer.DownFinished += InvokeGameStarted;
         gameEndTimer.DownFinished += InvokeGameOver;
+
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
     public void InvokeGameStarted() => GameStarted?.Invoke();
@@ -51,7 +55,11 @@ public class MinigameHandler : GameManager
         {
             if (!playerWonInvoked)
             {
-                InvokePlayerLost();
+                if (!playerLostInvoked)
+                {
+                    scoreKeeper.SubtractLife();
+                    InvokePlayerLost();
+                }
             }
         }
 
@@ -62,8 +70,9 @@ public class MinigameHandler : GameManager
     {
         if (!playerLostInvoked)
         {
-            PlayerLost?.Invoke();
             playerLostInvoked = true;
+            PlayerLost?.Invoke();
+            scoreKeeper.SubtractLife();
         }
 
         if (!gameOverInkvoked)
