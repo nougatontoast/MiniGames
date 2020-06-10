@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1080347848
 Transform:
   m_ObjectHideFlags: 0
@@ -660,7 +660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f267308d27f081444a6301cccc1a66f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayActionCounter: {fileID: 1236940490}
 --- !u!1001 &1191712846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,18 +729,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25cfe5125a6a03d46a7fc45717512561, type: 3}
---- !u!114 &1236940490 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 26443928, guid: 25cfe5125a6a03d46a7fc45717512561,
-    type: 3}
-  m_PrefabInstance: {fileID: 1191712846}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48037bd93541b0249873e9a0aa8ab45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1451790187
 GameObject:
   m_ObjectHideFlags: 0

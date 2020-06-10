@@ -52,9 +52,16 @@ public class MySceneLoader : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    public void GoToRestart()
+    public void GoToRestart_Command()
     {
         SceneManager.LoadScene("Restart");
+    }
+
+    public void GoToGameLobby_Delay()
+    {
+        delayActionCounter.enabled = true;
+        delayActionCounter.DownFinished += GoToGameLobby_Command;
+        delayActionCounter.DownFinished += RemoveGoToGameLobby;
     }
 
     public void GetRandomGame_Delay()
@@ -64,11 +71,11 @@ public class MySceneLoader : MonoBehaviour
         delayActionCounter.DownFinished += RemoveGetRandomGame;
     }
 
-    public void GoToGameLobby_Delay()
+    public void GoToRestart_Delay()
     {
         delayActionCounter.enabled = true;
-        delayActionCounter.DownFinished += GoToGameLobby_Command;
-        delayActionCounter.DownFinished += RemoveGoToGameLobby;
+        delayActionCounter.DownFinished += GoToRestart_Command;
+        delayActionCounter.DownFinished += GoToRestart_Command;
     }
 
 }

@@ -1,33 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PickRandomOrGameOver : MonoBehaviour
 {
     ScoreKeeper scoreKeeper;
     MySceneLoader mySceneLoader;
-
-    private string currentScene = null;
 
     private void Awake()
     {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         mySceneLoader = FindObjectOfType<MySceneLoader>();
 
-        currentScene = mySceneLoader.GetCurrentSceneName();
-
-        DetectAndSetNewGame();
-        PickRandomGameOrGoToRestart();
-    }
-
-    private void DetectAndSetNewGame()
-    {
-        if (currentScene.Equals("StartScene"))
-        {
-            scoreKeeper.ResetLives();
-        }
-    }
-
-    private void PickRandomGameOrGoToRestart()
-    {
         var currentScene = mySceneLoader.GetCurrentSceneName();
         if (currentScene.Equals("GameLobby"))
         {
@@ -43,7 +26,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-
-
 }

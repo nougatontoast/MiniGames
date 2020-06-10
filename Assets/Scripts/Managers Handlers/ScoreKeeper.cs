@@ -6,8 +6,6 @@ public class ScoreKeeper : MonoBehaviour
 {
     [SerializeField] internal bool testingMinigame = new bool();
 
-    MySceneLoader mySceneLoader;
-
     private int instanceCount = new int();
 
     private int totalPlayerLives = 3;
@@ -17,9 +15,6 @@ public class ScoreKeeper : MonoBehaviour
         private int maxSuccessesNeeded = 3;
         private int currentSuccessCount = 0;*/
 
-    public delegate void OnLivesZero();
-    public event OnLivesZero LivesZero;
-
     private void Awake()
     {
         SetUpSingleton();
@@ -27,28 +22,17 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Start()
     {
-        mySceneLoader = FindObjectOfType<MySceneLoader>();
-
         if (testingMinigame)
         {
             currentPlayerLives = 3;
         }
-
-
-        if (mySceneLoader.GetCurrentSceneName().Equals("StartScene"))
-        {
-            ResetLives();
-        }
-    }
-
-    private void Update()
-    {
     }
 
     private void SetUpSingleton()
     {
         int scoreKeeperCount = FindObjectsOfType<ScoreKeeper>().Length;
         instanceCount = scoreKeeperCount;
+
         if (scoreKeeperCount > 1)
         {
             gameObject.SetActive(false);
@@ -60,7 +44,7 @@ public class ScoreKeeper : MonoBehaviour
         }
     }
 
-    private void ResetLives()
+    public void ResetLives()
     {
         currentPlayerLives = totalPlayerLives;
     }
