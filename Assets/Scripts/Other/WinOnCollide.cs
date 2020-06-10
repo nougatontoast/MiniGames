@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class WinOnCollide : MonoBehaviour
 {
-    GameManager gameManager = null;
     IdManager idManager = null;
+    MinigameHandler minigameHandler = null;
 
     [SerializeField] List<GameObject> collidables = new List<GameObject>();
     [SerializeField] List<string> collideTags = new List<string>();
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         idManager = FindObjectOfType<IdManager>();
+        minigameHandler = FindObjectOfType<MinigameHandler>();
 
         foreach (GameObject obj in collidables)
         {
@@ -21,63 +21,28 @@ public class WinOnCollide : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!gameManager.gameOver)
+        foreach (string typetag in collideTags)
         {
-            foreach (string typetag in collideTags)
-            {
-                var thisType = idManager.GetObjType(collision.gameObject);
+            var thisType = idManager.GetObjType(collision.gameObject);
 
-                if (thisType != null)
+            if (thisType != null)
+            {
+                if (thisType.Equals(typetag))
                 {
-                    if (thisType.Equals(typetag))
-                    {
-*//*                        gameManager.SetPlayerWonToTrue();*//*
-                    }
-                    else
-                    {
-                        Debug.Log("Collision does not match");
-                    }
+                    minigameHandler.InvokePlayerWon();
                 }
                 else
                 {
-                    Debug.Log("Collision coming back null");
+                    Debug.Log($"Looking for: {typetag}, Collided with: {thisType}");
                 }
             }
-        }
-    }*/
-
-   /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Win collision detected. Checking strings");
-
-        if (!gameManager.gameOver)
-        {
-
-            foreach (string typetag in collideTags)
+            else
             {
-                var thisType = idManager.GetObjType(collision.gameObject);
-
-                if (thisType != null)
-                {
-                    if (thisType.Equals(typetag))
-                    {
-*//*                        gameManager.SetPlayerWonToTrue();*//*
-                        Debug.Log("HIT");
-                    }
-                    else
-                    {
-                        Debug.Log("Collision does not match");
-                    }
-                }
-                else
-                {
-                    Debug.Log("Collision coming back null");
-                }
+                Debug.Log("Collision IID is null");
             }
         }
-    }*/
-
+    }
 }
 

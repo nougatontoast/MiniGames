@@ -10,15 +10,9 @@ public abstract class Bounds : MonoBehaviour, IUseBounds
     internal Vector3 _colliderMax = new Vector3();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GetColliderBounds();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void GetColliderBounds()
@@ -27,6 +21,9 @@ public abstract class Bounds : MonoBehaviour, IUseBounds
         _colliderSize = theCollider.bounds.size;
         _colliderMin = theCollider.bounds.min;
         _colliderMax = theCollider.bounds.max;
+
+        Debug.Log(_colliderMin);
+        Debug.Log(_colliderMax);
     }
 
     public virtual void UseBounds(Vector3 spawnCenter, Vector3 _colliderSize, Vector3 _colliderMin, Vector3 _colliderMax)

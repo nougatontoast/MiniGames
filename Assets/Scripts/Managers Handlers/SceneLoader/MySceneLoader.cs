@@ -37,7 +37,8 @@ public class MySceneLoader : MonoBehaviour
     internal void GetRandomGame_Command()
     {
         int sceneCount = SceneManager.sceneCountInBuildSettings;
-        var selectedScene = Random.Range(3, sceneCount - 1);
+        Debug.Log(sceneCount);
+        var selectedScene = Random.Range(3, sceneCount);
 
         SceneManager.LoadScene(selectedScene);
     }
