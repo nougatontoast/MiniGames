@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class SingleDirectionObj : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] MovConfig movConfig = null;
+    [SerializeField] Vector3 directionOfMotion = new Vector3();
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
