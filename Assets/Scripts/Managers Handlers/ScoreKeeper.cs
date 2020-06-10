@@ -13,10 +13,12 @@ public class ScoreKeeper : MonoBehaviour
     private int totalPlayerLives = 3;
     private int currentPlayerLives = new int();
 
-/*    private int difficultyLevel = 1;
-    private int maxSuccessesNeeded = 3;
-    private int currentSuccessCount = 0;*/
+    /*    private int difficultyLevel = 1;
+        private int maxSuccessesNeeded = 3;
+        private int currentSuccessCount = 0;*/
 
+    public delegate void OnLivesZero();
+    public event OnLivesZero LivesZero;
 
     private void Awake()
     {
@@ -36,11 +38,6 @@ public class ScoreKeeper : MonoBehaviour
         if (mySceneLoader.GetCurrentSceneName().Equals("StartScene"))
         {
             ResetLives();
-        }
-
-        if (currentPlayerLives <= 0)
-        {
-            mySceneLoader.GoToRestart();
         }
     }
 
