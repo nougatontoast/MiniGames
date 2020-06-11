@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnObj : Bounds
+public class SpawnObjViaBounds : Bounds
 {
     IdManager idManager;
     MinigameHandler minigameHandler;
@@ -30,6 +30,7 @@ public class SpawnObj : Bounds
         idManager = FindObjectOfType<IdManager>();
         minigameHandler = FindObjectOfType<MinigameHandler>();
 
+        GetColliderBounds();
 
         var spawnObj = spawnConfig.GetSpawnable();
         spawnObjId = idManager.GetObjId(spawnObj);
@@ -61,6 +62,7 @@ public class SpawnObj : Bounds
             if (theCollider.OverlapPoint(new Vector2(x, y)))
             {
                 Vector3 spawnPos = new Vector3(x, y, 0);
+                Debug.Log("Spawning");
                 delaySpawnCoroutine = StartCoroutine(DelaySpawn(id_type_objtospawn, id_objtospawn, spawnPos, amountToSpawn));
             }
             else

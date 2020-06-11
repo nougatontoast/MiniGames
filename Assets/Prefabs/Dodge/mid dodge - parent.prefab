@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5633660416672798425}
   - component: {fileID: 5633660416672798424}
+  - component: {fileID: 541583767702040409}
   m_Layer: 0
   m_Name: mid dodge - parent
   m_TagString: Untagged
@@ -44,9 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f135bcd44ad26044eb625e3701206ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id_Config: {fileID: 11400000, guid: 6af5c10064f60ee45a164e59a6275cf3, type: 2}
   movConfig: {fileID: 11400000, guid: 2544f651861207342bddae1542cf30c9, type: 2}
   directionOfMotion: {x: -1, y: 0, z: 0}
+  objStopOnGameOver: 1
+--- !u!114 &541583767702040409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633660416672798430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3f411d977c4d24393f820853be250d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_Config: {fileID: 11400000, guid: 6af5c10064f60ee45a164e59a6275cf3, type: 2}
 --- !u!1 &5633660416912915662
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +72,7 @@ GameObject:
   - component: {fileID: 5633660416912915657}
   - component: {fileID: 5633660416912915656}
   - component: {fileID: 5633660416912915659}
-  - component: {fileID: 5633660416912915658}
+  - component: {fileID: 6752315880226654873}
   m_Layer: 0
   m_Name: mid dodge
   m_TagString: Untagged
@@ -156,7 +170,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &5633660416912915658
+--- !u!114 &6752315880226654873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,9 +179,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5633660416912915662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa547982cb012c48a27aff95ccd6aec, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3f411d977c4d24393f820853be250d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collidables:
-  - {fileID: 0}
-  collideTags: []
+  id_Config: {fileID: 11400000, guid: 6af5c10064f60ee45a164e59a6275cf3, type: 2}

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8da874a0476cc8a41bfd4d32e3fa2454, type: 3}
-  m_Name: rain_player
+  m_Name: burger_hand
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: fb387c1e3297b014cb4b1206651e9ca9, type: 3}
-  winSprite: {fileID: 21300000, guid: 98b2aca7fdeab3c4b849cd9917fa47c0, type: 3}
-  lostSprite: {fileID: 21300000, guid: 64480794e7efe51408bb2e3679ace662, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 7b246d34effc9cc43a3f61b8f83fbd7a, type: 3}
+  winSprite: {fileID: 21300000, guid: 7b246d34effc9cc43a3f61b8f83fbd7a, type: 3}
+  lostSprite: {fileID: 21300000, guid: 7b246d34effc9cc43a3f61b8f83fbd7a, type: 3}
+  defaultColor: {r: 0.68316776, g: 1, b: 0.3726415, a: 1}

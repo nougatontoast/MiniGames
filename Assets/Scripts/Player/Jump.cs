@@ -19,7 +19,7 @@ public class Jump : MonoBehaviour
         jumpSpeed = movConfig.GetJumpSpeed() * Time.fixedDeltaTime;
 
         rb = player.rb;
-        rb.gravityScale = 2.5f;
+        rb.gravityScale = 3f;
     }
     private void Update()
     {

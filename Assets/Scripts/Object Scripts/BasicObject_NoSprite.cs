@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicObject_NoSprite : MonoBehaviour
+public class BasicObject_NoSprite : MonoBehaviour, IId
 {
-    [SerializeField] Id_Config id_Config;
+    [SerializeField] Id_Config id_Config = null;
 
     public string GetId()
     {

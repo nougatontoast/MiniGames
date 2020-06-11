@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643637249834549555}
   - component: {fileID: 3643637249834549554}
+  - component: {fileID: 2124636582952894007}
   m_Layer: 0
   m_Name: low dodge - parent
   m_TagString: Untagged
@@ -44,9 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f135bcd44ad26044eb625e3701206ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id_Config: {fileID: 11400000, guid: 6af5c10064f60ee45a164e59a6275cf3, type: 2}
   movConfig: {fileID: 11400000, guid: 2544f651861207342bddae1542cf30c9, type: 2}
   directionOfMotion: {x: -1, y: 0, z: 0}
+  objStopOnGameOver: 1
+--- !u!114 &2124636582952894007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643637249834549552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3f411d977c4d24393f820853be250d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_Config: {fileID: 11400000, guid: 6af5c10064f60ee45a164e59a6275cf3, type: 2}
 --- !u!1 &3643637250869762212
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +72,7 @@ GameObject:
   - component: {fileID: 3643637250869762215}
   - component: {fileID: 3643637250869762214}
   - component: {fileID: 3643637250869762393}
+  - component: {fileID: 9216793661096065717}
   m_Layer: 0
   m_Name: low dodge
   m_TagString: Untagged
@@ -155,3 +170,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &9216793661096065717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643637250869762212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3f411d977c4d24393f820853be250d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_Config: {fileID: 11400000, guid: 6af5c10064f60ee45a164e59a6275cf3, type: 2}

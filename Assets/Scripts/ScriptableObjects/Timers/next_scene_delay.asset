@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7927a0445d457e488cedb0bf33efe6e, type: 3}
   m_Name: next_scene_delay
   m_EditorClassIdentifier: 
-  countDownFrom: 2
+  countDownFrom: 1.5
   downRate: 0.1
   endThresholdTop: 0
   endThresholdBottom: -0.9

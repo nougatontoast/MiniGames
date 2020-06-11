@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7927a0445d457e488cedb0bf33efe6e, type: 3}
-  m_Name: minigame_start_countdown
+  m_Script: {fileID: 11500000, guid: a7409d6fe2e109444a7bf92106e21f0e, type: 3}
+  m_Name: Burger_call_list
   m_EditorClassIdentifier: 
-  countDownFrom: 3
-  downRate: 0.15
-  endThresholdTop: 0.9
-  endThresholdBottom: 0.7
+  sceneMatch: 
+  objectsToInst:
+  - ObjectToPool: {fileID: 3348699674561792123, guid: c84cc39ea88432b4781491221398bbbd,
+      type: 3}
+    NumberToInst: 1

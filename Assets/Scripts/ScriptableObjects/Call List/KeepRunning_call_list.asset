@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7409d6fe2e109444a7bf92106e21f0e, type: 3}
+  m_Name: KeepRunning_call_list
+  m_EditorClassIdentifier: 
+  sceneMatch: KeepRunning
+  objectsToInst:
+  - ObjectToPool: {fileID: 3643637249834549552, guid: a34af401d28d5f84bbde7edb9c34c8de,
+      type: 3}
+    NumberToInst: 4
+  - ObjectToPool: {fileID: 5633660416672798430, guid: a3a8faf52c631d647bfa966ba86e05f3,
+      type: 3}
+    NumberToInst: 4

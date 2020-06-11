@@ -7,6 +7,7 @@ public class SetPositionInBounds : Bounds
 
     private void Start()
     {
+        GetColliderBounds();
         SetPositionWIthinBounds();
     }
 

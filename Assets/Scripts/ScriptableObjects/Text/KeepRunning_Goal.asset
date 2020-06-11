@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7927a0445d457e488cedb0bf33efe6e, type: 3}
-  m_Name: minigame_start_countdown
+  m_Script: {fileID: 11500000, guid: 993e3259ce49cba43aa32a5bbeddf6a1, type: 3}
+  m_Name: KeepRunning_Goal
   m_EditorClassIdentifier: 
-  countDownFrom: 3
-  downRate: 0.15
-  endThresholdTop: 0.9
-  endThresholdBottom: 0.7
+  text: don't stop running

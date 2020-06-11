@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7927a0445d457e488cedb0bf33efe6e, type: 3}
-  m_Name: minigame_start_countdown
+  m_Script: {fileID: 11500000, guid: 4b2b32ac158b9b44ca93a3ddb3e88b72, type: 3}
+  m_Name: Burger_1_spawnConfig
   m_EditorClassIdentifier: 
-  countDownFrom: 3
-  downRate: 0.15
-  endThresholdTop: 0.9
-  endThresholdBottom: 0.7
+  objToSpawn: {fileID: 0}
+  objectsToSpawn:
+  - {fileID: 3348699674561792123, guid: c84cc39ea88432b4781491221398bbbd, type: 3}
+  maxSpawnables: 0
+  minDelay: 1
+  maxDelay: 1.5

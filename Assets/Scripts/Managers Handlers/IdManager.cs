@@ -13,7 +13,6 @@ public class IdManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("ID is Null");
             return null;
         }
     }
@@ -27,7 +26,6 @@ public class IdManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Object type is Null");
             return null;
         }
     }

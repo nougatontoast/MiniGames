@@ -9,13 +9,7 @@ public abstract class Bounds : MonoBehaviour, IUseBounds
     internal Vector3 _colliderMin = new Vector3();
     internal Vector3 _colliderMax = new Vector3();
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        GetColliderBounds();
-    }
-
-    private void GetColliderBounds()
+    internal void GetColliderBounds()
     {
         spawnCenter = theCollider.bounds.center;
         _colliderSize = theCollider.bounds.size;
