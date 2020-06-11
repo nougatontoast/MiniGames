@@ -36,11 +36,6 @@ public class Player : MonoBehaviour, IId
         }
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
 
     #region IID region
     public string GetId()

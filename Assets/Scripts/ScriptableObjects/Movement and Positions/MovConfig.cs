@@ -6,8 +6,8 @@ using UnityEngine;
 public class MovConfig : ScriptableObject
 {
     [SerializeField] private float moveSpeed = new float();
-    [SerializeField] private float climbSpeed = new float();
+    [SerializeField] private float jumpSpeed = new float();
 
     public float GetMoveSpeed() { return moveSpeed; }
-    public float GetClimbSpeed() { return climbSpeed; }
+    public float GetJumpSpeed() { return jumpSpeed; }
 }

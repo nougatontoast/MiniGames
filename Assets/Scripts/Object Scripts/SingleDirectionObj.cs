@@ -7,9 +7,17 @@ public class SingleDirectionObj : MonoBehaviour
     [SerializeField] MovConfig movConfig = null;
     [SerializeField] Vector3 directionOfMotion = new Vector3();
 
-    private void Start()
+    private void FixedUpdate()
     {
-        
+        MoveInDirection();
+    }
+
+    private void MoveInDirection()
+    {
+        var posX = gameObject.transform.position.x + directionOfMotion.x * movConfig.GetMoveSpeed();
+        var posY = gameObject.transform.position.y + directionOfMotion.y * movConfig.GetMoveSpeed();
+
+        transform.position = new Vector3(posX, posY, transform.position.z);
     }
 
 }
