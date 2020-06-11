@@ -28,7 +28,11 @@ public abstract class BasicObject : MonoBehaviour, IId
 
     public void SetUpSprite()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = spriteConfig.GetDefaultSprite();
+        var spriteR = gameObject.GetComponent<SpriteRenderer>().sprite;
+        if (spriteR != null)
+        {
+            spriteConfig.GetDefaultSprite();
+        }
     }
 
     public void SetUpColor()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleDirectionObj : MonoBehaviour
+public class SingleDirectionObj : BasicObject_NoSprite
 {
     [SerializeField] MovConfig movConfig = null;
     [SerializeField] Vector3 directionOfMotion = new Vector3();

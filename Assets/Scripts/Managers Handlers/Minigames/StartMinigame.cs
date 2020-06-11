@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StartMinigame : MonoBehaviour
 {
-    [Header("Things To Enable On Start")]
+    [Header("Things To Enable On Game Start")]
     [SerializeField] internal List<GameObject> minigameElements = new List<GameObject>();
 
 

@@ -34,12 +34,12 @@ public class LoseOnCollide : MonoBehaviour
                 }
                 else
                 {
-/*                    Debug.Log($"Looking for: {typetag}, Collided with: {thisType}");*/
+                    Debug.Log($"Looking for: {typetag}, Collided with: {thisType}");
                 }
             }
             else
             {
-/*                Debug.Log("Collision IID is null");*/
+                Debug.Log("Collision IID is null");
             }
         }
     }
